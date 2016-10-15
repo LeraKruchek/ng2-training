@@ -1,7 +1,148 @@
 <div>Hi</div>
-<div>
-<p>LowerCasePipe</p>
-  <input>
-  <p></p>
-  <p></p>
-</div>
+<section>
+  <h2>LowerCasePipe</h2>
+  <div class="example-wrapper">
+
+    <div class="example">
+      <p class="title">Type here</p>
+      <input [(ngModel)]="lowerCase">
+    </div>
+
+    <div class="example">
+      <p class="title" ngNonBindable>{{value | lowercase}}</p>
+      <p>{{lowerCase | lowercase}}</p>
+      </div>
+    </div>
+</section>
+
+<section>
+  <h2>UpperCasePipe</h2>
+  <div class="example-wrapper">
+    <div class="example">
+      <p>Type here</p>
+      <input [(ngModel)]="upperCase">
+    </div>
+    <div class="example">
+      <p>No pipe</p>
+      <p>{{upperCase}}</p>
+    </div>
+    <div class="example">
+      <p>Pipe</p>
+      <pre><code ngNonBindable>{{value | uppercase}}</code></pre>
+      <p>{{upperCase | uppercase}}</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>DecimalPipe</h2>
+  <div class="example-wrapper">
+    <div class="example">
+      <p>Type here</p>
+      <input type="number" [(ngModel)]="pi">
+    </div>
+    <div class="example">
+      <p>No pipe</p>
+      <p>{{pi}}</p>
+    </div>
+    <div class="example">
+      <p>Pipe</p>
+      <pre><code ngNonBindable>{{value | number: '1.2-5'}}</code></pre>
+      <p>{{pi | number: '1.2-5'}}</p>
+    </div>
+    <div class="example">
+      <p>Pipe</p>
+      <pre><code ngNonBindable>{{value | number: '3.5-9'}}</code></pre>
+      <p>{{pi | number: '3.5-9'}}</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>PercentPipe</h2>
+  <div class="example-wrapper">
+    <div class="example">
+      <p>Type here</p>
+      <input type="number" [(ngModel)]="percent">
+    </div>
+    <div class="example">
+      <p>No pipe</p>
+      <p>{{percent}}</p>
+    </div>
+    <div class="example">
+      <p>Pipe</p>
+      <pre><code ngNonBindable>{{value | percent: '1.2-5'}}</code></pre>
+      <p>{{percent | percent: '1.2-5'}}</p>
+    </div>
+    <div class="example">
+      <p>Pipe</p>
+      <pre><code ngNonBindable>{{value | percent: '3.5-9'}}</code></pre>
+      <p>{{percent | percent: '3.5-9'}}</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>DatePipe</h2>
+  <div class="example-wrapper">
+    <div class="example">
+      <p>Type here</p>
+      <input type="number" (keypress)="checkLength($event)" [(ngModel)]="date">
+    </div>
+    <div class="example">
+      <p>No pipe</p>
+      <p>{{date}}</p>
+    </div>
+    <div class="example">
+      <p>Pipe</p>
+      <pre><code ngNonBindable>{{value | date: 'mediumDate'}}</code></pre>
+      <p>{{date | date: 'mediumDate'}}</p>
+    </div>
+    <div class="example">
+      <p>Pipe</p>
+      <pre><code ngNonBindable>{{value | date: 'mediumTime'}}</code></pre>
+      <p>{{date | date: 'mediumTime'}}</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>SlicePipe</h2>
+  <div class="example-wrapper">
+    <div class="example">
+      <p>Type here</p>
+      <input type="string" [(ngModel)]="sliceString">
+    </div>
+    <div class="example">
+      <p>No pipe</p>
+      <p>{{sliceString}}</p>
+    </div>
+    <div class="example">
+      <p>Pipe</p>
+      <pre><code ngNonBindable>{{value | slice:4:-1}}</code></pre>
+      <p>{{sliceString | slice:4:-1}}</p>
+    </div>
+    <div class="example">
+      <p>Pipe</p>
+      <pre><code ngNonBindable>{{value | slice:0:4}}</code></pre>
+      <p>{{sliceString | slice:0:4}}</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>AsyncPipe</h2>
+  <div class="example-wrapper">
+    <div class="example">
+      <p>No pipe</p>
+      <p>{{$num_stream}}</p>
+    </div>
+    <div class="example">
+      <p>Pipe</p>
+      <pre><code ngNonBindable>{{value | slice:4:-1}}</code></pre>
+      <p>{{$num_stream | async}}</p>
+    </div>
+    <button id="start_btn">Start</button>
+    <button id="stop_btn">Stop</button>
+  </div>
+</section>

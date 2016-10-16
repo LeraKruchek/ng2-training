@@ -11,9 +11,10 @@ import { DateComponent } from './pipes/date/date.component';
 import { SliceComponent } from './pipes/slice/slice.component';
 import { AsyncComponent } from './pipes/async/async.component';
 import { JsonComponent } from './pipes/json/json.component';
-import {ColorPipe} from "custom_pipes/color.pipe";
+import {ColorPipe} from "./custom_pipes/color.pipe";
 import {CustomComponent} from "./pipes/custom/custom.component";
-import {FruitPipeImpure, FruitPipe} from "custom_pipes/filter.pipe";
+import {FruitPipeImpure, FruitPipe} from "./custom_pipes/filter.pipe";
+import {CurrencyComponent} from "./pipes/currency/currency.component";
 
 @NgModule({
   imports: [ BrowserModule, FormsModule,
@@ -22,6 +23,7 @@ import {FruitPipeImpure, FruitPipe} from "custom_pipes/filter.pipe";
         children: [
         { path: 'letter-casing', component: LetterCasingComponent },
         { path: 'decimal-percent', component: DecimalPercentComponent },
+        { path: 'currency', component: CurrencyComponent },
         { path: 'date', component: DateComponent },
         { path: 'slice', component: SliceComponent },
         { path: 'async', component: AsyncComponent },
@@ -41,6 +43,7 @@ import {FruitPipeImpure, FruitPipe} from "custom_pipes/filter.pipe";
     AsyncComponent,
     JsonComponent,
     CustomComponent,
+    CurrencyComponent,
     ColorPipe,
     FruitPipe,
     FruitPipeImpure

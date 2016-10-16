@@ -3,7 +3,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 @Pipe({ name: 'fruits'})
 export class FruitPipe implements PipeTransform {
   transform(value: any) {
-    return value.filter(v => v.isFruit);
+    return value.filter((v: any) => v.isFruit);
   }
 }
 

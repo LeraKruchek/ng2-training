@@ -1,0 +1,26 @@
+<div class="bs-callout bs-callout-info">
+  <samp>number | currency[:currencyCode[:symbolDisplay[:digitInfo]]]</samp>
+</div>
+<div class="bs-callout bs-callout-info">
+  <p><samp>currencyCode</samp> is the ISO 4217 currency code, such as USD for the US dollar and EUR for the euro.</p>
+  <p><samp>symbolDisplay</samp> is a boolean indicating whether to use the currency symbol or code.</p>
+  <p><samp>true</samp>: use symbol (e.g. $).</p>
+  <p><samp>false(default)</samp>: use code (e.g. USD).</p>
+</div>
+<section>
+  <h2>CurrencyPipe</h2>
+  <div class="example-wrapper">
+    <div class="example">
+      <p class="title" style="width: 400px">No pipe</p>
+      <p>{{currency}}</p>
+    </div>
+    <div class="example">
+      <p class="title" style="width: 400px" ngNonBindable>{{value | currency:'USD':true:'4.2-2'}}</p>
+      <p>{{currency | currency:'USD':true:'4.2-2'}}</p>
+    </div>
+    <div class="example">
+      <p class="title" style="width: 400px" ngNonBindable>{{value | currency:'EUR':false}}</p>
+      <p>{{currency | currency:'EUR':false}}</p>
+    </div>
+  </div>
+</section>

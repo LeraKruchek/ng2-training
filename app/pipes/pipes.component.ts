@@ -14,6 +14,10 @@ export class PipesComponent {
     active: false,
     name: 'Decimal / Percent'
   }, {
+    path: './currency',
+    active: false,
+    name: 'Currency'
+  }, {
     path: './date',
     active: false,
     name: 'Date'

@@ -1,0 +1,30 @@
+<div class="bs-callout bs-callout-info">
+  <p><samp>'medium'</samp>: equivalent to <samp>'yMMMdjms'</samp> (e.g. <samp>Sep 3, 2010, 12:05:08 PM for en-US</samp>)</p>
+  <p><samp>'short'</samp>: equivalent to <samp>'yMdjm'</samp> (e.g. <samp>9/3/2010, 12:05 PM for en-US</samp>)</p>
+  <p><samp>'fullDate'</samp>: equivalent to <samp>'yMMMMEEEEd</samp> (e.g. <samp>Friday, September 3, 2010 for en-US</samp>)</p>
+  <p><samp>'longDate'</samp>: equivalent to <samp>'yMMMMd'</samp> (e.g. <samp>September 3, 2010 for en-US</samp>)</p>
+  <p><samp>'mediumDate'</samp>: equivalent to <samp>'yMMMd'</samp> (e.g. <samp> Sep 3, 2010 for en-US</samp>)</p>
+  <p><samp>'shortDate'</samp>: equivalent to <samp>'yMd'</samp> (e.g. <samp>9/3/2010 for en-US</samp>)</p>
+  <p><samp>'mediumTime'</samp>: equivalent to <samp>'jms'</samp> (e.g. <samp>12:05:08 PM for en-US</samp>)</p>
+  <p><samp>'shortTime'</samp>: equivalent to <samp>'jm'</samp> (e.g. <samp>12:05 PM for en-US</samp>)</p>
+</div>
+<section>
+  <h2>DatePipe</h2>
+  <div class="bs-callout bs-callout-info">
+    <samp>dateObject / timestamp / ISO string | date[:format]</samp>
+  </div>
+  <div class="example-wrapper">
+    <div class="example">
+      <p class="title">No pipe</p>
+      <input type="number" (keypress)="checkLength($event)" [(ngModel)]="date">
+    </div>
+    <div class="example">
+      <p class="title" ngNonBindable>{{value | date: 'mediumDate'}}</p>
+      <p>{{date | date: 'mediumDate'}}</p>
+    </div>
+    <div class="example">
+      <p class="title" ngNonBindable>{{value | date: 'mediumTime'}}</p>
+      <p>{{date | date: 'mediumTime'}}</p>
+    </div>
+  </div>
+</section>

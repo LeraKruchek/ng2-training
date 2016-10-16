@@ -1,0 +1,18 @@
+<section>
+  <h2>AsyncPipe</h2>
+  <div class="bs-callout bs-callout-info">
+    <samp>observable / promise | async</samp>
+  </div>
+  <div class="example-wrapper">
+    <div class="example">
+      <p class="title">No pipe</p>
+      <p>{{$num_stream}}</p>
+    </div>
+    <div class="example">
+      <p class="title" ngNonBindable>{{value | async}}</p>
+      <p>{{$num_stream | async}}</p>
+    </div>
+    <button id="start_btn">Start</button>
+    <button id="stop_btn">Stop</button>
+  </div>
+</section>

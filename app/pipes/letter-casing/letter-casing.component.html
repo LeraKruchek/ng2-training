@@ -1,0 +1,33 @@
+<div class="bs-callout bs-callout-info">
+  <samp>string_expression | lowercase</samp><br>
+  <samp>string_expression | uppercase</samp>
+</div>
+
+<section>
+  <h2>LowerCasePipe</h2>
+  <div class="example-wrapper">
+    <div class="example">
+      <p class="title">No pipe</p>
+      <input [(ngModel)]="lowerCase">
+    </div>
+
+    <div class="example">
+      <p class="title" ngNonBindable>{{value | lowercase}}</p>
+      <p>{{lowerCase | lowercase}}</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>UpperCasePipe</h2>
+  <div class="example-wrapper">
+    <div class="example">
+      <p class="title">No pipe</p>
+      <input [(ngModel)]="upperCase">
+    </div>
+    <div class="example">
+      <p class="title" ngNonBindable>{{value | uppercase}}</p>
+      <p>{{upperCase | uppercase}}</p>
+    </div>
+  </div>
+</section>

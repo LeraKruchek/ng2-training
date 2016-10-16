@@ -1,0 +1,53 @@
+<section>
+  <h2>ColorPipe</h2>
+  <div class="bs-callout bs-callout-info">
+    <samp>observable / promise | color</samp>
+  </div>
+  <div class="example-wrapper">
+    <div class="example">
+      <p class="title">No pipe</p>
+      <p>{{$num_stream}}</p>
+    </div>
+    <div class="example">
+      <p class="title" ngNonBindable>{{value | async}}</p>
+      <p [innerHTML]="$num_stream | async | color:3"></p>
+    </div>
+    <button id="start_btn">Start</button>
+    <button id="stop_btn">Stop</button>
+  </div>
+</section>
+
+<section>
+  <h2>FruitPipe</h2>
+  <div class="example-wrapper">
+     <input [(ngModel)]="newVal">
+    <input type="checkbox" [(ngModel)]="isFruit"> Is fruit?
+    <input type="checkbox" [(ngModel)]="mutate"> Mutate
+    <button (click)="addToArr()">Add</button>
+    <button (click)="reset()">Reset</button>
+
+    <h4>All Items (no pipe)</h4>
+    <div>
+      <div *ngFor="let item of arr">
+        {{item.name}}
+      </div>
+    </div>
+
+
+    <h4>Fruits (pure pipe)</h4>
+    <div>
+      <div *ngFor="let item of (arr | fruits)">
+        {{item.name}}
+      </div>
+    </div>
+
+    <h4>Fruits (impure pipe)</h4>
+    <div>
+      <div *ngFor="let item of (arr | fruits_impure)">
+        {{item.name}}
+      </div>
+    </div>
+
+
+  </div>
+</section>

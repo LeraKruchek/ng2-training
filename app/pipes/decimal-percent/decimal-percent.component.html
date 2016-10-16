@@ -1,0 +1,48 @@
+<div class="bs-callout bs-callout-info">
+  <p><samp>digitInfo</samp> is a string which has a following format:</p>
+  <p><samp>minIntegerDigits.minFractionDigits-maxFractionDigits</samp></p>
+  <p><samp>minIntegerDigits</samp> is the minimum number of integer digits to use. Defaults to 1.</p>
+  <p><samp>minFractionDigits</samp> is the minimum number of digits after fraction. Defaults to 0.</p>
+  <p><samp>maxFractionDigits</samp> is the maximum number of digits after fraction. Defaults to 3.</p>
+</div>
+<section>
+  <h2>DecimalPipe</h2>
+  <div class="bs-callout bs-callout-info">
+    <samp>number_expression | number[:digitInfo]</samp>
+  </div>
+  <div class="example-wrapper">
+    <div class="example">
+      <p class="title">No pipe</p>
+      <input type="number" [(ngModel)]="pi">
+    </div>
+    <div class="example">
+      <p class="title" ngNonBindable>{{value | number: '1.2-5'}}</p>
+      <p>{{pi | number: '1.2-5'}}</p>
+    </div>
+    <div class="example">
+      <p class="title" ngNonBindable>{{value | number: '3.5-9'}}</p>
+      <p>{{pi | number: '3.5-9'}}</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>PercentPipe</h2>
+  <div class="bs-callout bs-callout-info">
+    <samp>number_expression | percent[:digitInfo]</samp>
+  </div>
+  <div class="example-wrapper">
+    <div class="example">
+      <p class="title">No pipe</p>
+      <input type="number" [(ngModel)]="percent">
+    </div>
+    <div class="example">
+      <p class="title" ngNonBindable>{{value | percent: '1.2-5'}}</p>
+      <p>{{percent | percent: '1.2-5'}}</p>
+    </div>
+    <div class="example">
+      <p class="title" ngNonBindable>{{value | percent: '3.5-9'}}</p>
+      <p>{{percent | percent: '3.5-9'}}</p>
+    </div>
+  </div>
+</section>

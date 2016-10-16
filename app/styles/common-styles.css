@@ -1,0 +1,39 @@
+.example-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.example {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.title {
+  width: 300px;
+}
+section {
+  font-size: 20px;
+  padding-bottom: 40px;
+  margin-bottom: 70px;
+  border-bottom: 1px solid #B8B8B8;
+}
+h2 {
+  margin-bottom: 50px;
+}
+
+h4 {
+  font-weight: bold;
+}
+
+.bs-callout-info {
+  border-left-color: #1b809e !important;
+}
+
+.bs-callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+}

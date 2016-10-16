@@ -1,0 +1,35 @@
+<section>
+  <h2>SlicePipe</h2>
+  <div class="bs-callout bs-callout-info">
+    <samp>array / string | slice:start[:end]</samp>
+  </div>
+  <div class="example-wrapper">
+    <div class="example">
+      <p class="title">No pipe</p>
+      <input type="string" [(ngModel)]="sliceString">
+    </div>
+    <div class="example">
+      <p class="title" ngNonBindable>{{value | slice:4:-1}}</p>
+      <p>{{sliceString | slice:4:-1}}</p>
+    </div>
+    <div class="example">
+      <p class="title" ngNonBindable>{{value | slice:0:4}}</p>
+      <p>{{sliceString | slice:0:4}}</p>
+    </div>
+  </div>
+
+  <div class="example-wrapper">
+    <div class="example">
+      <p class="title">No pipe</p>
+      <div *ngFor="let i of sliceArray"><p>{{i}}</p></div>
+    </div>
+    <div class="example">
+      <p class="title" ngNonBindable>{{ngFor="let i of value | slice:4:-1"}}</p>
+      <div *ngFor="let i of (sliceArray | slice:4:-1)"><p>{{i}}</p>}</div>
+    </div>
+    <div class="example">
+      <p class="title" ngNonBindable>{{ngFor="let i of value | slice:0:4"}}</p>
+      <div *ngFor="let i of (sliceArray | slice:0:4)"><p>{{i}}</p></div>
+    </div>
+  </div>
+</section>

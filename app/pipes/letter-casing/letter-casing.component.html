@@ -29,5 +29,8 @@
       <p class="title" ngNonBindable>{{value | uppercase}}</p>
       <p>{{upperCase | uppercase}}</p>
     </div>
+    <p>{{upperCase | repeatCapitalize: 4}}</p>
+    <p>{{'abc' | repeatCapitalize}}</p>
+    <p>{{'abc' | repeatCapitalize: 4}}</p>
   </div>
 </section>

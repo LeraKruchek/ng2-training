@@ -22,5 +22,9 @@
       <p class="title" style="width: 400px" ngNonBindable>{{value | currency:'EUR':false}}</p>
       <p>{{currency | currency:'EUR':false}}</p>
     </div>
+    <div class="example">
+      <p class="title" style="width: 400px" ngNonBindable>{{value | currency}}</p>
+      <p>{{currency | currency: 'BYN' : true}}</p>
+    </div>
   </div>
 </section>

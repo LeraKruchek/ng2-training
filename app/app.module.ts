@@ -15,6 +15,7 @@ import {ColorPipe} from "./custom_pipes/color.pipe";
 import {CustomComponent} from "./pipes/custom/custom.component";
 import {FruitPipeImpure, FruitPipe} from "./custom_pipes/filter.pipe";
 import {CurrencyComponent} from "./pipes/currency/currency.component";
+import {RepeatCapitalizePipe} from "./custom_pipes/repeat-capitalize";
 
 @NgModule({
   imports: [ BrowserModule, FormsModule,
@@ -46,7 +47,8 @@ import {CurrencyComponent} from "./pipes/currency/currency.component";
     CurrencyComponent,
     ColorPipe,
     FruitPipe,
-    FruitPipeImpure
+    FruitPipeImpure,
+    RepeatCapitalizePipe
   ],
   bootstrap: [ AppComponent ]
 })

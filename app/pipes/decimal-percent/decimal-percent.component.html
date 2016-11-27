@@ -17,12 +17,20 @@
       <input type="number" [(ngModel)]="pi">
     </div>
     <div class="example">
-      <p class="title" ngNonBindable>{{value | number: '1.2-5'}}</p>
-      <p>{{pi | number: '1.2-5'}}</p>
+      <p class="title" ngNonBindable>{{value | number: '1.2-4'}}</p>
+      <p>{{pi | number: '1.2-4'}}</p>
     </div>
     <div class="example">
-      <p class="title" ngNonBindable>{{value | number: '3.5-9'}}</p>
-      <p>{{pi | number: '3.5-9'}}</p>
+      <p class="title" ngNonBindable>{{value | number: '3.6-9'}}</p>
+      <p>{{pi | number: '3.6-9'}}</p>
+    </div>
+    <div class="example">
+      <p class="title" ngNonBindable>{{value | number}}</p>
+      <p>{{pi | number}}</p>
+    </div>
+    <div class="example">
+      <p class="title" ngNonBindable>{{value | number: '3.1'}}</p>
+      <p>{{pi | number: '3.1'}}</p>
     </div>
   </div>
 </section>
@@ -41,6 +49,10 @@
     <div class="example">
       <p class="title" ngNonBindable>{{value | percent: '3.5-9'}}</p>
       <p>{{percent | percent: '3.5-9'}}</p>
+    </div>
+    <div class="example">
+      <p class="title" ngNonBindable>{{value | percent}}</p>
+      <p>{{percent | percent}}</p>
     </div>
   </div>
 </section>

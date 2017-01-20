@@ -37,3 +37,24 @@ h4 {
   border-left-width: 5px;
   border-radius: 3px;
 }
+
+.wrapper {
+  margin-bottom: 10px;
+}
+
+.wrapper label {
+  margin-right: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+fieldset .wrapper {
+  padding-top: 10px;
+}
+
+input.ng-dirty.ng-invalid {
+  border: 2px solid red;
+}

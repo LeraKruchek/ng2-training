@@ -1,0 +1,55 @@
+<h3>Template-driven two-way form</h3>
+
+<div class="wrapper" *ngFor="let p of people" (click)="setFormModel(p)">{{p.person.name}}</div>
+<button class="wrapper" (click)="addNew()">New</button>
+
+<div class="container">
+    
+    <form class="wrapper" #form="ngForm">
+        
+        <fieldset ngModelGroup="person">
+            <div class="wrapper">
+                <label>Name:</label>
+                <input type="text" name="name" #name="ngModel" [(ngModel)]="formModel.person.name" required minlength="3" maxlength="10">
+                <pre *ngIf="name.invalid">{{name.errors | json}}</pre>
+            </div>
+            <div class="wrapper">
+                <label>Age:</label>
+                <input type="number" name="age" #age="ngModel" [(ngModel)]="formModel.person.age" required>
+                <pre *ngIf="age.invalid">{{age.errors | json}}</pre>
+            </div>
+            <div class="wrapper">
+                <label>Gender:</label>
+                <radio name="gender" [items]="genders" [nameOption]="gender" [(ngModel)]="formModel.person.gender"></radio>
+            </div>
+        </fieldset>
+        
+        <fieldset ngModelGroup="address">
+            <div class="wrapper">
+                <label>E-mail:</label>
+                <input type="text" name="email" #email="ngModel" [(ngModel)]="formModel.address.email" validateEmail ngModel required>
+                <pre *ngIf="email.invalid">{{email.errors | json}}</pre>
+            </div>
+            <div class="wrapper">
+                <label>City:</label>
+                <input type="text" name="city" [(ngModel)]="formModel.address.city">
+            </div>
+        </fieldset>
+        
+        <button [disabled]="form.invalid" (click)="submit(form.value)">Submit</button>
+    </form>
+    
+    <div>
+        <pre>Is myForm valid?: <br>{{form.valid | json}}</pre>
+        <pre>Is myForm touched?: <br>{{form.touched | json}}</pre>
+        <pre>Is myForm dirty?: <br>{{form.dirty | json}}</pre>
+    </div>
+</div>
+<pre>
+    {{form.value | json}}
+</pre>
+
+<h4>Submitted</h4>
+<pre>
+    {{value | json }}
+</pre>

@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
-import fromEvent from 'rxjs/add/observable/fromEvent';
+import * as fromEvent from 'rxjs/add/observable/fromEvent';
 
 @Component({
   selector: 'async',

@@ -1,60 +1,60 @@
-<div>model-driven form</div>
+<h3>Model-driven form</h3>
 
-<div *ngFor="let p of people" (click)="setFormModel(p)">{{p.person.name}}</div>
+<div class="wrapper" *ngFor="let p of people" (click)="setFormModel(p)">{{p.person.name}}</div>
 <button (click)="addNew()">New</button>
 
 <div class="container">
-    <form [formGroup]="formGroup">
-        
+    <form class="form-wrapper" #form="ngForm" [formGroup]="formGroup">
+
         <fieldset formGroupName="person">
-            <div class="wrapper">
-                <label>Name:</label>
-                <input type="text" formControlName="name">
-                <p *ngIf="formGroup.controls.person.controls.name.pending">
+            <div class="form-group">
+                <label class="required">Name:</label>
+                <input type="text" class="form-control" formControlName="name">
+                <span class="status-message" *ngIf="formGroup.controls.person.controls.name.pending">
                     Fetching data from the server...
-                </p>
-                <error-display [control]="formGroup.controls.person.controls.name"></error-display>
+                </span>
+                <span class="status-message error-message" *ngIf="formGroup.controls.person.controls.name.dirty && formGroup.controls.person.controls.name.errors">
+                  {{formGroup.controls.person.controls.name.errors | json}}
+                </span>
             </div>
-            <div class="wrapper">
-                <label>Age:</label>
-                <input type="number" formControlName="age">
-                <error-display [control]="formGroup.controls.person.controls.age"></error-display>
+            <div class="form-group">
+                <label class="required">Age:</label>
+                <input type="number" class="form-control" formControlName="age">
+                <span class="status-message error-message" *ngIf="formGroup.controls.person.controls.age.dirty && formGroup.controls.person.controls.age.errors">
+                  {{formGroup.controls.person.controls.age.errors | json}}
+                </span>
             </div>
-            <div class="wrapper">
+            <div class="form-group">
                 <label>Gender:</label>
                 <radio formControlName="gender" [items]="genders" [nameOption]="gender"></radio>
             </div>
         </fieldset>
-        
+
         <fieldset formGroupName="address">
-            <div class="wrapper">
-                <label>E-mail:</label>
-                <input type="text" formControlName="email">
-                <error-display [control]="formGroup.controls.address.controls.email"></error-display>
+            <div class="form-group">
+                <label class="required">E-mail:</label>
+                <input type="text" class="form-control" formControlName="email">
+                <span class="status-message error-message" *ngIf="formGroup.controls.address.controls.email.dirty && formGroup.controls.address.controls.email.errors">
+                  {{formGroup.controls.address.controls.email.errors | json}}
+                </span>
             </div>
-            <div class="wrapper">
+            <div class="form-group">
                 <label>City:</label>
-                <input type="text" formControlName="city">
+                <input type="text" class="form-control" formControlName="city">
             </div>
         </fieldset>
-        
-        
-        <button (click)="submit(formGroup.value)">Submit</button>
+
+
+        <button class="no-label" [disabled]="form.invalid" (click)="submit(formGroup.value)">Submit</button>
     </form>
     <div>
         <pre>Is myForm valid?: <br>{{formGroup.valid | json}}</pre>
         <pre>Is myForm touched?: <br>{{formGroup.touched | json}}</pre>
         <pre>Is myForm dirty?: <br>{{formGroup.dirty | json}}</pre>
-        <pre>From errors <br>{{formGroup.errors | json}}</pre>
     </div>
 </div>
-<pre>
-    {{formGroup.value | json}}
-</pre>
+<h4>Form value</h4>
+<pre>{{formGroup.value | json}}</pre>
 
 <h4>Submitted</h4>
-<pre>
-    {{value | json }}
-</pre>
-
-
+<pre>{{value | json }}</pre>

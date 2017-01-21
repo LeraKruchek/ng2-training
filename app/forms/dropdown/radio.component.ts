@@ -10,14 +10,14 @@ const CUSTOM_DROPDOWN_VALUE_ACCESSOR = {
 @Component({
    selector: 'radio',
    template: `
-       <p *ngFor="let item of items">
+       <label *ngFor="let item of items" class="radio-inline">
          <input type="radio"
            (change)="setValue($event)"
            [value]="item"
            [checked]="value === item"
            name="{{nameOption}}">
              {{item}}
-       </p>`,
+       </label>`,
    providers: [CUSTOM_DROPDOWN_VALUE_ACCESSOR]
 })
 export class RadioComponent implements ControlValueAccessor {

@@ -56,5 +56,53 @@ fieldset .wrapper {
 }
 
 input.ng-dirty.ng-invalid {
-  border: 2px solid red;
+  border: 1px solid red;
+}
+
+.form-wrapper {
+  margin-bottom: 15px;
+}
+
+.form-wrapper .form-group {
+  margin-bottom: 25px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-wrapper .form-group label {
+  width: 100px;
+  padding-right: 15px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.form-wrapper label.required {
+  position: relative;
+}
+
+.form-wrapper label.required:after {
+  content: "*";
+  position: absolute;
+  color: #f00;
+}
+
+.form-wrapper .form-group .radio-inline {
+  width: auto;
+  padding-right: 0;
+}
+
+.form-wrapper .no-label {
+  margin-left: 100px;
+}
+
+.form-wrapper .status-message {
+  position: absolute;
+  top: 100%;
+  left: 100px;
+  white-space: nowrap;
+}
+
+.form-wrapper .status-message.error-message {
+  color: #f00;
 }

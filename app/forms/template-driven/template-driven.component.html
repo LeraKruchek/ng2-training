@@ -1,52 +1,69 @@
 <h3>Template-driven two-way form</h3>
 
-<div class="wrapper" *ngFor="let p of people" (click)="setFormModel(p)">{{p.person.name}}</div>
-<button (click)="addNew()">New</button>
-
-<div class="container">
-
-    <form class="form-wrapper" #form="ngForm">
-
-        <fieldset ngModelGroup="person">
-            <div class="form-group">
-                <label class="required">Name:</label>
-                <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="formModel.person.name" required minlength="3" maxlength="10">
-                <span class="status-message error-message" *ngIf="name.invalid && name.dirty">{{name.errors | json}}</span>
-            </div>
-            <div class="form-group">
-                <label class="required">Age:</label>
-                <input type="number" class="form-control" name="age" #age="ngModel" [(ngModel)]="formModel.person.age" required>
-                <span class="status-message error-message" *ngIf="age.invalid && age.dirty">{{age.errors | json}}</span>
-            </div>
-            <div class="form-group">
-                <label>Gender:</label>
-                <radio name="gender" [items]="genders" [nameOption]="gender" [(ngModel)]="formModel.person.gender"></radio>
-            </div>
-        </fieldset>
-
-        <fieldset ngModelGroup="address">
-            <div class="form-group">
-                <label class="required">E-mail:</label>
-                <input type="text" class="form-control" name="email" #email="ngModel" [(ngModel)]="formModel.address.email" validateEmail ngModel required>
-              <span class="status-message error-message" *ngIf="email.invalid && email.dirty">{{email.errors | json}}</span>
-            </div>
-            <div class="form-group">
-                <label>City:</label>
-                <input type="text" class="form-control" name="city" [(ngModel)]="formModel.address.city">
-            </div>
-        </fieldset>
-
-        <button class="no-label" [disabled]="form.invalid" (click)="submit(form.value)">Submit</button>
-    </form>
-
-    <div>
-        <pre>Is myForm valid?: <br>{{form.valid | json}}</pre>
-        <pre>Is myForm touched?: <br>{{form.touched | json}}</pre>
-        <pre>Is myForm dirty?: <br>{{form.dirty | json}}</pre>
+<div class="row">
+    <div class="col-sm-2">
+        <ul class="persons list-group">
+            <li class="list-group-item" *ngFor="let p of people" (click)="setFormModel(p)">{{p.person.name}}</li>
+        </ul>
+        <div class="buttons-wrapper">
+            <button (click)="addNew()">New</button>
+        </div>
     </div>
-</div>
-<h4>Form value</h4>
-<pre>{{form.value | json}}</pre>
 
-<h4>Submitted</h4>
-<pre>{{value | json }}</pre>
+    <div class="main-col col-sm-10">
+        <div class="row">
+            <form class="form-wrapper col-sm-6" #form="ngForm">
+                <fieldset ngModelGroup="person">
+                    <div class="form-group">
+                        <label class="required">Name:</label>
+                        <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="formModel.person.name" required minlength="3" maxlength="10">
+                        <error-display [control]="name"></error-display>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Age:</label>
+                        <input type="number" class="form-control" name="age" #age="ngModel" [(ngModel)]="formModel.person.age" required>
+                        <error-display [control]="age"></error-display>
+                    </div>
+                    <div class="form-group">
+                        <label>Gender:</label>
+                        <radio name="gender" [items]="genders" [nameOption]="gender" [(ngModel)]="formModel.person.gender" class="radio-wrapper"></radio>
+                    </div>
+                </fieldset>
+
+                <fieldset ngModelGroup="address">
+                    <div class="form-group">
+                        <label class="required">E-mail:</label>
+                        <input type="text" class="form-control" name="email" #email="ngModel" [(ngModel)]="formModel.address.email" validateEmail ngModel required>
+                        <error-display [control]="email"></error-display>
+                    </div>
+                    <div class="form-group">
+                        <label>City:</label>
+                        <input type="text" class="form-control" name="city" [(ngModel)]="formModel.address.city">
+                    </div>
+                </fieldset>
+
+                <button class="btn btn-primary" [disabled]="form.invalid" (click)="submit(form.value)">Submit</button>
+            </form>
+
+            <div class="form-status col-sm-6">
+                <h4>Form status</h4>
+                <ul class="list-group">
+                    <li class="list-group-item"><span class="emoji">{{form.valid ? '😇' : '👿'}}</span>{{form.valid ? 'Valid' : 'Invalid'}}</li>
+                    <li class="list-group-item"><span class="emoji">{{form.touched ? '👇' : '✋'}}</span>{{form.touched ? 'Touched' : 'Untouched'}}</li>
+                    <li class="list-group-item"><span class="emoji">{{form.dirty ? '🤢' : '😎'}}</span>{{form.dirty ? 'Dirty' : 'Pristine'}}</li>
+                </ul>
+            </div>
+      </div>
+
+      <div class="row">
+          <div class="col-sm-6">
+              <h4>Form value</h4>
+              <pre class="form-json">{{form.value | json}}</pre>
+          </div>
+          <div class="col-sm-6">
+              <h4>Submitted</h4>
+              <pre class="form-json">{{value | json }}</pre>
+          </div>
+        </div>
+    </div>
+

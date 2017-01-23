@@ -46,11 +46,6 @@ h4 {
   margin-right: 10px;
 }
 
-.container {
-  display: flex;
-  justify-content: space-around;
-}
-
 fieldset .wrapper {
   padding-top: 10px;
 }
@@ -63,20 +58,6 @@ input.ng-dirty.ng-invalid {
   margin-bottom: 15px;
 }
 
-.form-wrapper .form-group {
-  margin-bottom: 25px;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.form-wrapper .form-group label {
-  width: 100px;
-  padding-right: 15px;
-  text-align: right;
-  flex-shrink: 0;
-}
-
 .form-wrapper label.required {
   position: relative;
 }
@@ -87,22 +68,43 @@ input.ng-dirty.ng-invalid {
   color: #f00;
 }
 
-.form-wrapper .form-group .radio-inline {
-  width: auto;
-  padding-right: 0;
+.form-wrapper .form-group .radio-wrapper {
+  display: block;
 }
 
-.form-wrapper .no-label {
-  margin-left: 100px;
+.form-wrapper .form-control {
+  width: 240px;
 }
 
-.form-wrapper .status-message {
-  position: absolute;
-  top: 100%;
-  left: 100px;
+.form-wrapper .status-message,
+error-display {
   white-space: nowrap;
 }
 
-.form-wrapper .status-message.error-message {
+error-display {
   color: #f00;
+}
+
+.form-status .emoji {
+  font-size: 26px;
+  display: inline-block;
+  width: 36px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.main-col {
+  border-left: 1px solid #eee;
+}
+
+.form-json {
+  min-height: 100px;
+}
+
+.persons li {
+  cursor: pointer;
+}
+
+.buttons-wrapper button{
+  margin-bottom: 15px;
 }

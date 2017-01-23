@@ -15,6 +15,7 @@ const CUSTOM_RADIO_VALUE_ACCESSOR = {
            (change)="setValue($event)"
            [value]="item"
            [checked]="value === item"
+           [disabled]="isDisabled"
            name="{{nameOption}}">
              {{item}}
        </label>`,
@@ -25,6 +26,7 @@ export class RadioComponent implements ControlValueAccessor {
     @Input() nameOption: string;
 
     currentValue: any;
+    isDisabled: boolean;
 
     setValue(item) {
         this.value = item.target.value;
@@ -57,8 +59,9 @@ export class RadioComponent implements ControlValueAccessor {
             this.value = value;
         }
     }
-    
+
     setDisabledState(isDisabled) {
+        this.isDisabled = isDisabled;
         let warning = isDisabled ? 'radio disabled' : 'radio enabled';
         console.warn(warning);
     }

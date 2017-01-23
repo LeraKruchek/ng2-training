@@ -10,16 +10,24 @@ import { validateAsync } from '../validators/async.validator';
 })
 export class ModelDrivenComponent implements OnInit {
     people: any[];
-    genders: any[];
+    genders: string[];
     value;
     current;
     formGroup: FormGroup;
-    errors: any;
 
     constructor(private formBuilder: FormBuilder) {
-        this.people = [{person: {name: 'Alex', age: 60, gender: 'male'}, address: {email: 'alex@mymail.com', city: 'Minsk'}}];
+        this.people = [{
+            person: {
+                name: 'Alex',
+                age: 60,
+                gender: 'male'
+            },
+            address: {
+                email: 'alex@mymail.com',
+                city: 'Minsk'
+            }
+        }];
         this.genders = ['male', 'female'];
-        this.errors = {required: 'This field is required'};
         this.current = {person: {}, address: {}};
     }
 
@@ -54,5 +62,17 @@ export class ModelDrivenComponent implements OnInit {
     addNew() {
         this.formGroup.reset();
         this.current = {person: {}, address: {}};
+    }
+
+    setRadioValue() {
+        let control = this.formGroup.get('person').get('gender');
+        let value = control.value === 'male' ? 'female' : 'male';
+
+        control.setValue(value);
+    }
+
+    toggleRadioDisabled() {
+        let control = this.formGroup.get('person').get('gender');
+        control.disabled ? control.enable() : control.disable();
     }
 }

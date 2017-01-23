@@ -2,6 +2,8 @@
 
 <div class="wrapper" *ngFor="let p of people" (click)="setFormModel(p)">{{p.person.name}}</div>
 <button (click)="addNew()">New</button>
+<button (click)="setRadioValue()">Set radio value</button>
+<button (click)="toggleRadioDisabled()">Set radio value</button>
 
 <div class="container">
     <form class="form-wrapper" #form="ngForm" [formGroup]="formGroup">

@@ -8,10 +8,11 @@ import { deepCopy } from '../../utils/deep-copy';
 })
 export class TemplateDrivenComponent {
     people: any[];
-    genders: any[];
+    genders: string[];
     formModel;
     value;
     current;
+
     @ViewChild('form') public userForm: NgForm;
 
     constructor() {

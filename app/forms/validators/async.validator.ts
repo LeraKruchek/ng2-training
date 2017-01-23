@@ -4,7 +4,7 @@ export function validateAsync(control: FormControl): Promise<{[key: string]: boo
 
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            if (control.value === 'Alex') {
+            if (control.value === 'Alex1') {
                 resolve({validateAsync: true});
             } else {
                 resolve(null);

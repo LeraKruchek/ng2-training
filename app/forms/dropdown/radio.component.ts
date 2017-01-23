@@ -1,7 +1,7 @@
 import {Component, Input, forwardRef} from '@angular/core';
 import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
 
-const CUSTOM_DROPDOWN_VALUE_ACCESSOR = {
+const CUSTOM_RADIO_VALUE_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => RadioComponent),
     multi: true
@@ -18,10 +18,10 @@ const CUSTOM_DROPDOWN_VALUE_ACCESSOR = {
            name="{{nameOption}}">
              {{item}}
        </label>`,
-   providers: [CUSTOM_DROPDOWN_VALUE_ACCESSOR]
+   providers: [CUSTOM_RADIO_VALUE_ACCESSOR]
 })
 export class RadioComponent implements ControlValueAccessor {
-    @Input() items: any[];
+    @Input() items: string[];
     @Input() nameOption: string;
 
     currentValue: any;
@@ -33,7 +33,6 @@ export class RadioComponent implements ControlValueAccessor {
     set value(newValue) {
         if (newValue) {
             this.currentValue = newValue;
-
             this.onChange(newValue);
         }
     }
@@ -45,13 +44,22 @@ export class RadioComponent implements ControlValueAccessor {
     onChange = (_) => {};
     onTouched = () => {};
 
-    registerOnChange(fn: any): void { this.onChange = fn; }
+    registerOnChange(fn: any) {
+        this.onChange = fn;
+    }
 
-    registerOnTouched(fn: any): void { this.onTouched = fn; }
+    registerOnTouched(fn: any) {
+        this.onTouched = fn;
+    }
 
     writeValue(value: any) {
         if (value !== this.currentValue) {
-            this.currentValue = value;
+            this.value = value;
         }
+    }
+    
+    setDisabledState(isDisabled) {
+        let warning = isDisabled ? 'radio disabled' : 'radio enabled';
+        console.warn(warning);
     }
 }

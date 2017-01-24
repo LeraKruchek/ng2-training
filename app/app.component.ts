@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 
 @Component({
     selector: 'my-app',
@@ -12,6 +12,9 @@ import { Component } from '@angular/core';
           </li>
         </ul>
         <router-outlet></router-outlet>
-    `
+    `,
+     styleUrls: ['./styles/common-styles.scss'],
+     encapsulation: ViewEncapsulation.None
+
 })
 export class AppComponent { }

@@ -25,6 +25,7 @@ import {CurrencyComponent} from "./pipes/currency/currency.component";
 import {RepeatCapitalizePipe} from "./custom_pipes/repeat-capitalize";
 import {EmailValidator} from "./forms/validators/email.validator.directive";
 import {RadioComponent} from "./forms/dropdown/radio.component";
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 @NgModule({
   imports: [ BrowserModule, FormsModule, ReactiveFormsModule,
@@ -77,6 +78,7 @@ import {RadioComponent} from "./forms/dropdown/radio.component";
     FruitPipeImpure,
     RepeatCapitalizePipe
   ],
+  providers: [  { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

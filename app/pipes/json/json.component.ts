@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'json',
-  templateUrl: 'app/pipes/json/json.component.html'
+  templateUrl: './json.component.html'
 })
 export class JsonComponent {
   object: any = {

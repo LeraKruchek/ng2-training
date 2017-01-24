@@ -6,7 +6,7 @@ import { validateAsync } from '../validators/async.validator';
 
 @Component({
     selector: 'model-driven',
-    templateUrl: 'app/forms/model-driven/model-driven.component.html'
+    templateUrl: './model-driven.component.html'
 })
 export class ModelDrivenComponent implements OnInit {
     people: any[];

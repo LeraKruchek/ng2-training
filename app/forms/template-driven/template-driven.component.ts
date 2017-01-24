@@ -4,7 +4,7 @@ import { deepCopy } from '../../utils/deep-copy';
 
 @Component({
     selector: 'template-driven',
-    templateUrl: 'app/forms/template-driven/template-driven.component.html'
+    templateUrl: './template-driven.component.html'
 })
 export class TemplateDrivenComponent {
     people: any[];

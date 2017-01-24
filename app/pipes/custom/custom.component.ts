@@ -4,7 +4,7 @@ import * as fromEvent from 'rxjs/add/observable/fromEvent';
 
 @Component({
   selector: 'async',
-  templateUrl: 'app/pipes/custom/custom.component.html'
+  templateUrl: './custom.component.html'
 })
 export class CustomComponent implements AfterViewInit {
   $start_click: Observable<any>;

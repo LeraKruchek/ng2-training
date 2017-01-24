@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'async',
-  templateUrl: 'app/pipes/async/async.component.html'
+  templateUrl: './async.component.html'
 })
 export class AsyncComponent implements AfterViewInit {
   $start_click: Observable<any>;

@@ -3,7 +3,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
     selector: 'error-display',
-    templateUrl: 'app/forms/error-display/error-display.component.html'
+    templateUrl: './error-display.component.html'
 })
 export class ErrorDisplayComponent {
     @Input() control: FormControl;

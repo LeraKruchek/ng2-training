@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'date',
-  templateUrl: 'app/pipes/date/date.component.html'
+  templateUrl: './date.component.html'
 })
 export class DateComponent {
   date: number = Date.now();

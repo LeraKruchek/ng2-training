@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'forms',
-    templateUrl: 'app/forms/forms.component.html'
+    templateUrl: './forms.component.html'
 })
 export class FormsComponent {
     routes: any = [{

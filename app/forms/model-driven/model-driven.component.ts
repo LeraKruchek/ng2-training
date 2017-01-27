@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators, FormControl} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import { deepCopy } from '../../utils/deep-copy';
 import { validateEmail } from '../validators/email.validator';
 import { validateAsync } from '../validators/async.validator';
@@ -12,7 +12,6 @@ export class ModelDrivenComponent implements OnInit {
     people: any[];
     genders: string[];
     value;
-    current;
     formGroup: FormGroup;
 
     constructor(private formBuilder: FormBuilder) {
@@ -28,7 +27,6 @@ export class ModelDrivenComponent implements OnInit {
             }
         }];
         this.genders = ['male', 'female'];
-        this.current = {person: {}, address: {}};
     }
 
     ngOnInit() {
@@ -42,26 +40,33 @@ export class ModelDrivenComponent implements OnInit {
                 city: ['', Validators.required],
                 email: ['', [validateEmail, Validators.required]]
             })
+        });
+
+        this.formGroup.valueChanges.subscribe(value => console.log(value))
+    }
+
+    nameExists(name) {
+        return this.people.some(item => {
+            return item.person.name === name;
         })
     }
 
     setFormModel(p) {
-        this.current = p;
         this.formGroup.setValue(deepCopy(p));
     }
 
     submit(form) {
-        if (this.current.person.name === form.person.name) {
-            this.current = deepCopy(form);
+        if (!this.nameExists(form.value.person.name)) {
+            this.value = form.value;
+            this.people.push(deepCopy(form.value));
+            form.reset();
         } else {
-            this.people.push(deepCopy(form))
+            alert('Already exists');
         }
-        this.value = form;
     }
 
     addNew() {
         this.formGroup.reset();
-        this.current = {person: {}, address: {}};
     }
 
     setRadioValue() {
@@ -73,6 +78,7 @@ export class ModelDrivenComponent implements OnInit {
 
     toggleRadioDisabled() {
         let control = this.formGroup.get('person').get('gender');
+
         control.disabled ? control.enable() : control.disable();
     }
 }

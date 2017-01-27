@@ -11,7 +11,6 @@ export class TemplateDrivenComponent {
     genders: string[];
     formModel;
     value;
-    current;
 
     @ViewChild('form') public userForm: NgForm;
 
@@ -22,7 +21,12 @@ export class TemplateDrivenComponent {
         }];
         this.genders = ['male', 'female'];
         this.formModel = {person: {}, address: {}};
-        this.current = {person: {}, address: {}};
+    }
+
+    nameExists(name) {
+        return this.people.some(item => {
+            return item.person.name === name;
+        })
     }
 
     ngOnInit() {
@@ -30,21 +34,21 @@ export class TemplateDrivenComponent {
     }
 
     setFormModel(p) {
-        this.current = p;
         this.formModel = deepCopy(p);
     }
 
     submit(form) {
-        if (this.current.person.name === this.formModel.person.name) {
-            this.current = deepCopy(this.formModel);
+        if (!this.nameExists(form.value.person.name)) {
+            this.value = form.value;
+            this.people.push(deepCopy(form.value));
+            form.resetForm();
+
         } else {
-            this.people.push(deepCopy(this.formModel))
+            alert('Already exists');
         }
-        this.value = form;
     }
 
     addNew() {
         this.formModel = {person: {}, address: {}};
-        this.current = {person: {}, address: {}};
     }
 }

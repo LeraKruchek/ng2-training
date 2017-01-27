@@ -12,37 +12,38 @@
 
     <div class="main-col col-sm-10">
         <div class="row">
-            <form class="form-wrapper col-sm-6" #form="ngForm">
+            <form class="form-wrapper col-sm-6" #form="ngForm" (submit)="submit(form)">
                 <fieldset ngModelGroup="person">
                     <div class="form-group">
                         <label class="required">Name:</label>
-                        <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="formModel.person.name" required minlength="3" maxlength="10">
-                        <error-display [control]="name"></error-display>
+                        <input type="text" class="form-control" name="name" #name="ngModel" [ngModel]="formModel.person.name" required minlength="3" maxlength="10">
+                        <span class="error-display">{{name?.errors | json}}</span>
                     </div>
                     <div class="form-group">
                         <label class="required">Age:</label>
-                        <input type="number" class="form-control" name="age" #age="ngModel" [(ngModel)]="formModel.person.age" required>
-                        <error-display [control]="age"></error-display>
+                        <input type="number" class="form-control" name="age" #age="ngModel" [ngModel]="formModel.person.age" required>
+                        <span class="error-display">{{age?.errors | json}}</span>
                     </div>
                     <div class="form-group">
                         <label>Gender:</label>
-                        <radio name="gender" [items]="genders" [nameOption]="gender" [(ngModel)]="formModel.person.gender" class="radio-wrapper"></radio>
+                        <radio name="gender" [items]="genders" [nameOption]="gender" [ngModel]="formModel.person.gender" class="radio-wrapper"></radio>
                     </div>
                 </fieldset>
 
                 <fieldset ngModelGroup="address">
                     <div class="form-group">
                         <label class="required">E-mail:</label>
-                        <input type="text" class="form-control" name="email" #email="ngModel" [(ngModel)]="formModel.address.email" validateEmail ngModel required>
-                        <error-display [control]="email"></error-display>
+                        <input type="text" class="form-control" name="email" #email="ngModel" [ngModel]="formModel.address.email" validateEmail ngModel required>
+                        <span class="error-display">{{email?.errors | json}}</span>
                     </div>
                     <div class="form-group">
                         <label>City:</label>
-                        <input type="text" class="form-control" name="city" [(ngModel)]="formModel.address.city">
+                        <input type="text" class="form-control" name="city" #city="ngModel" [ngModel]="formModel.address.city" required>
+                        <span class="error-display">{{city?.errors | json}}</span>
                     </div>
                 </fieldset>
 
-                <button class="btn btn-primary" [disabled]="form.invalid" (click)="submit(form.value)">Submit</button>
+                <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Submit</button>
             </form>
 
             <div class="form-status col-sm-6">

@@ -30,19 +30,19 @@ import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 @NgModule({
   imports: [ BrowserModule, FormsModule, ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: 'pipes', component: PipesComponent,
-        children: [
-          {path: '', redirectTo: 'letter-casing', pathMatch: 'full' },
-        { path: 'letter-casing', component: LetterCasingComponent },
-        { path: 'decimal-percent', component: DecimalPercentComponent },
-        { path: 'currency', component: CurrencyComponent },
-        { path: 'date', component: DateComponent },
-        { path: 'slice', component: SliceComponent },
-        { path: 'async', component: AsyncComponent },
-        { path: 'json', component: JsonComponent},
-        { path: 'custom', component: CustomComponent }
-        ]
-      },
+      // { path: 'pipes', component: PipesComponent,
+      //   children: [
+      //     {path: '', redirectTo: 'letter-casing', pathMatch: 'full' },
+      //   { path: 'letter-casing', component: LetterCasingComponent },
+      //   { path: 'decimal-percent', component: DecimalPercentComponent },
+      //   { path: 'currency', component: CurrencyComponent },
+      //   { path: 'date', component: DateComponent },
+      //   { path: 'slice', component: SliceComponent },
+      //   { path: 'async', component: AsyncComponent },
+      //   { path: 'json', component: JsonComponent},
+      //   { path: 'custom', component: CustomComponent }
+      //   ]
+      // },
       {
         path: 'forms', component: FormsComponent,
         children: [

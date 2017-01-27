@@ -56,7 +56,7 @@ export class RadioComponent implements ControlValueAccessor {
 
     writeValue(value: any) {
         if (value !== this.currentValue) {
-            this.value = value;
+            this.currentValue = value;
         }
     }
 

@@ -14,20 +14,20 @@
 
     <div class="main-col col-sm-10">
         <div class="row">
-            <form class="form-wrapper col-sm-6" #form="ngForm" [formGroup]="formGroup">
+            <form class="form-wrapper col-sm-6" [formGroup]="formGroup" (submit)="submit(formGroup)">
                 <fieldset formGroupName="person">
                     <div class="form-group">
                         <label class="required">Name:</label>
-                        <input type="text" class="form-control" formControlName="name">
+                        <input type="text" class="form-control" formControlName="name" #name="">
                         <span class="status-message" *ngIf="formGroup.controls.person.controls.name.pending">
                               Fetching data from the server...
                         </span>
-                        <error-display [control]="formGroup.controls.person.controls.name"></error-display>
+                        <span class="error-display">{{formGroup.controls.person.controls.name?.errors | json}}</span>
                     </div>
                     <div class="form-group">
                         <label class="required">Age:</label>
                         <input type="number" class="form-control" formControlName="age">
-                        <error-display [control]="formGroup.controls.person.controls.age"></error-display>
+                        <span class="error-display">{{formGroup.controls.person.controls.age?.errors | json}}</span>
                     </div>
                     <div class="form-group">
                         <label>Gender:</label>
@@ -39,23 +39,24 @@
                     <div class="form-group">
                         <label class="required">E-mail:</label>
                         <input type="text" class="form-control" formControlName="email">
-                        <error-display [control]="formGroup.controls.address.controls.email"></error-display>
+                        <span class="error-display">{{formGroup.controls.address.controls.email?.errors | json}}</span>
                     </div>
                     <div class="form-group">
                         <label>City:</label>
                         <input type="text" class="form-control" formControlName="city">
+                        <span class="error-display">{{formGroup.controls.address.controls.city?.errors | json}}</span>
                     </div>
                 </fieldset>
 
-                <button class="btn btn-primary" [disabled]="form.invalid" (click)="submit(formGroup.value)">Submit</button>
+                <button class="btn btn-primary" [disabled]="formGroup.invalid" type="submit">Submit</button>
             </form>
 
             <div class="form-status col-sm-6">
                 <h4>Form status</h4>
                 <ul class="list-group">
-                    <li class="list-group-item"><span class="emoji">{{form.valid ? '😇' : '👿'}}</span>{{form.valid ? 'Valid' : 'Invalid'}}</li>
-                    <li class="list-group-item"><span class="emoji">{{form.touched ? '👇' : '✋'}}</span>{{form.touched ? 'Touched' : 'Untouched'}}</li>
-                    <li class="list-group-item"><span class="emoji">{{form.dirty ? '🤢' : '😎'}}</span>{{form.dirty ? 'Dirty' : 'Pristine'}}</li>
+                    <li class="list-group-item"><span class="emoji">{{formGroup.valid ? '😇' : '👿'}}</span>{{formGroup.valid ? 'Valid' : 'Invalid'}}</li>
+                    <li class="list-group-item"><span class="emoji">{{formGroup.touched ? '👇' : '✋'}}</span>{{formGroup.touched ? 'Touched' : 'Untouched'}}</li>
+                    <li class="list-group-item"><span class="emoji">{{formGroup.dirty ? '🤢' : '😎'}}</span>{{formGroup.dirty ? 'Dirty' : 'Pristine'}}</li>
                 </ul>
             </div>
         </div>

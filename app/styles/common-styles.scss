@@ -76,13 +76,13 @@ input.ng-dirty.ng-invalid {
   width: 240px;
 }
 
-.form-wrapper .status-message,
-error-display {
+.form-wrapper .status-message {
   white-space: nowrap;
 }
 
-error-display {
+.error-display {
   color: #f00;
+  white-space: nowrap;
 }
 
 .form-status .emoji {

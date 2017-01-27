@@ -1,7 +1,7 @@
 <h3>Model-driven form</h3>
 
 <div class="row">
-    <div class="col-sm-2">
+    <div class="col-sm-3">
         <ul class="persons list-group">
             <li class="list-group-item" *ngFor="let p of people" (click)="setFormModel(p)">{{p.person.name}}</li>
         </ul>
@@ -10,9 +10,18 @@
             <button class="btn btn-default" (click)="setRadioValue()">Set radio value</button>
             <button class="btn btn-default" (click)="toggleRadioDisabled()">Toggle radio disabled</button>
         </div>
+    
+        <div class="form-status col-sm">
+            <h4>Form status</h4>
+            <ul class="list-group">
+                <li class="list-group-item"><span class="emoji">{{formGroup.valid ? '😇' : '👿'}}</span>{{formGroup.valid ? 'Valid' : 'Invalid'}}</li>
+                <li class="list-group-item"><span class="emoji">{{formGroup.touched ? '👇' : '✋'}}</span>{{formGroup.touched ? 'Touched' : 'Untouched'}}</li>
+                <li class="list-group-item"><span class="emoji">{{formGroup.dirty ? '🤢' : '😎'}}</span>{{formGroup.dirty ? 'Dirty' : 'Pristine'}}</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="main-col col-sm-10">
+    <div class="main-col col-sm-9">
         <div class="row">
             <form class="form-wrapper col-sm-6" [formGroup]="formGroup" (submit)="submit(formGroup)">
                 <fieldset formGroupName="person">
@@ -50,26 +59,18 @@
 
                 <button class="btn btn-primary" [disabled]="formGroup.invalid" type="submit">Submit</button>
             </form>
+    
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>Form value</h4>
+                    <pre class="form-json">{{formGroup.value | json}}</pre>
+                </div>
+                <div class="col-sm-6">
+                    <h4>Submitted</h4>
+                    <pre class="form-json">{{value | json }}</pre>
+                </div>
+            </div>
 
-            <div class="form-status col-sm-6">
-                <h4>Form status</h4>
-                <ul class="list-group">
-                    <li class="list-group-item"><span class="emoji">{{formGroup.valid ? '😇' : '👿'}}</span>{{formGroup.valid ? 'Valid' : 'Invalid'}}</li>
-                    <li class="list-group-item"><span class="emoji">{{formGroup.touched ? '👇' : '✋'}}</span>{{formGroup.touched ? 'Touched' : 'Untouched'}}</li>
-                    <li class="list-group-item"><span class="emoji">{{formGroup.dirty ? '🤢' : '😎'}}</span>{{formGroup.dirty ? 'Dirty' : 'Pristine'}}</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-6">
-                <h4>Form value</h4>
-                <pre class="form-json">{{formGroup.value | json}}</pre>
-            </div>
-            <div class="col-sm-6">
-                <h4>Submitted</h4>
-                <pre class="form-json">{{value | json }}</pre>
-            </div>
         </div>
     </div>
 </div>
